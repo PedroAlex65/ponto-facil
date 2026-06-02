@@ -18,14 +18,14 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class) //Faz o Mockito funcionar com JUnit 5
+@ExtendWith(MockitoExtension.class) 
 public class PontoServiceTest {
 
     @Mock
-    private PontoRepository pontoRepository; //Cria o dublê do banco
+    private PontoRepository pontoRepository;
 
     @InjectMocks
-    private PontoService pontoService; //Instancia o service e coloca o dublê lá dentro
+    private PontoService pontoService;
 
     @Test
     @DisplayName("Deve lançar erro quando o último registro no banco é igual ao que o usúario quer marcar.")
@@ -71,7 +71,7 @@ public class PontoServiceTest {
         assertNotNull(resultado);
         assertEquals(TipoRegistro.ENTRADA, resultado.getTipo());
 
-        verify(pontoRepository.save(any()));
+        verify(pontoRepository).save(any());
     }
 
 }
